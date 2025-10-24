@@ -48,13 +48,13 @@ public class Main {
                 if (menuOption == 1) {
                     try {
                         System.out.print("Nombre de la prenda: ");
-                        String nombre = nextLine();
+                        String nombre = keyEntry.nextLine();
 
                         System.out.print("Talla (S/M/L/XL): ");
-                        String talla = sc.nextLine();
+                        String talla = keyEntry.nextLine();
 
                         System.out.print("Precio (entero): ");
-                        int precio = Integer.parseInt(sc.nextLine().trim());
+                        int precio = Integer.parseInt(keyEntry.nextLine().trim());
                         System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
                         System.out.println(RED + "Precio inválido. Debe ser un número entero." );

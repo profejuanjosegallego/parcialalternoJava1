@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,10 +17,10 @@ public class Main {
         String contraseñaDigitado = "";
         String contraseñaAlmacenado = "admin123";
 
-        //implementa logica para login con:
-        //-nombre usuario
-        //-correo
-        //-contraseña
+        //implementa logica para login con:✅
+        //-nombre usuario ✅
+        //-correo ✅
+        //-contraseña ✅
 
 
         System.out.println("\n******************");
@@ -44,6 +45,8 @@ public class Main {
             menuOption = keyEntry.nextInt();
             keyEntry.nextLine();
 
+            ArrayList<String> inventario = new ArrayList<>();
+
             do {
                 try {
 
@@ -67,6 +70,8 @@ public class Main {
 
                             System.out.print("Precio (entero): ");
                             int precio = Integer.parseInt(keyEntry.nextLine().trim());
+                            inventario.add(nombre+"|"+talla+"|"+precio+"|");
+
                             System.out.println(greenColor + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                         } catch (NumberFormatException e) {
                             System.out.println(redColor + "Precio inválido. Debe ser un número entero.");
@@ -78,20 +83,24 @@ public class Main {
                         System.out.println("- Camiseta | M | $45000");
                         System.out.println("- Jean     | L | $120000");
 
+                        for (int i = 0; i < inventario.size(); i++) {
+                            String prenda = inventario.get(i);
+                        }
+
 
                     } else if (menuOption == 3) {
-                        //implementar algoritmo para cerrar el programa
+                        //implementar algoritmo para cerrar el programa ✅
                         break;
                     } else {
                         System.out.println(redColor + "Opción no válida. Prueba con un número del 1 al 5.");
                     }
 
 
-                    if (menuOption != 5) {
-                        System.out.print("\nPresiona ENTER para continuar...");
-                        keyEntry.nextLine();
-                        System.out.println();
-                    }
+//                    if (menuOption != 5) {
+//                        System.out.print("\nPresiona ENTER para continuar...");
+//                        keyEntry.nextLine();
+//                        System.out.println();
+//                    }
 
                 } catch (InputMismatchException ex) {
                     System.out.println(redColor + "Entrada inválida. Debes digitar un número (1-5).");
@@ -108,7 +117,7 @@ public class Main {
                     System.out.println();
                 }
 
-            } while (menuOption != 5);
+            } while (menuOption != 3);
 
         }
     }

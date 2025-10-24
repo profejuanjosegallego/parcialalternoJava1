@@ -1,4 +1,5 @@
 package org.example;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,10 +16,18 @@ public class Main {
         //-correo
         //-contraseña
 
-        System.out.println("\n******************");
-        System.out.println("***** APP *****");
-        System.out.println("******************");
+        String correoAlmacenado = "saragaleo";
+        String correoDigitado;
+        String contraseñaAlamacenada = "admin123";
+        String contraseñaDigitada;
 
+        Scanner leer = new Scanner(System.in);
+
+        System.out.println("Digite su correo");
+        correoDigitado = leer.nextLine();
+
+        System.out.println("Digite la contraseña");
+        contraseñaDigitada = leer.nextLine();
 
         System.out.println("Digita una opcion: ");
         menuOption=keyEntry.nextInt();

@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,8 +12,6 @@ public class Main {
         //-nombre usuario
         //-correo
         //-contraseña
-
-
 
         System.out.println("\n******************");
         System.out.println("***** APP *****");

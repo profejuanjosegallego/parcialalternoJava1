@@ -6,7 +6,9 @@ public class Main {
 
         Scanner keyEntry = new Scanner(System.in);
         Integer menuOption=null;
-        String greenColor="\u001B[32m";
+        String GREEN = "\u001B[32m";
+        String RED = "\u001B[31m";
+        String YELLOW = "\u001B[33m";
 
         //implementa logica para login con:
         //-nombre usuario

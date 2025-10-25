@@ -32,32 +32,22 @@ public class Main {
         contraseñaDigitado = keyEntry.nextLine();
 
 
-//        System.out.println("Digita una opcion: ");
-//        menuOption = keyEntry.nextInt();
-
         if (usuarioAlmacenado.equals(usuarioDigitado) && contraseñaAlmacenado.equals(contraseñaDigitado)) {
-            System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
-            System.out.println(greenColor + "1) Guardar una prenda en BD 📝");
-            System.out.println("2) Mostrar el inventario de prendas 📦");
-            System.out.println("3) SALIR ❌\n");
-
-            System.out.print("Digita una opción: ");
-            menuOption = keyEntry.nextInt();
-            keyEntry.nextLine();
-
-            ArrayList<String> inventario = new ArrayList<>();
+            ArrayList<String> nombres = new ArrayList<>();
+            ArrayList<String> tallas = new ArrayList<>();
+            ArrayList<Integer> precios = new ArrayList<>();
 
             do {
                 try {
 
-//                System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
-//                System.out.println(greenColor + "1) Guardar una prenda en BD 📝");
-//                System.out.println("2) Mostrar el inventario de prendas 📦");
-//                System.out.println("3) SALIR ❌\n");
-//
-//                System.out.print("Digita una opción: ");
-//                menuOption = keyEntry.nextInt();
-//                keyEntry.nextLine();
+                System.out.println("\n👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
+                System.out.println(greenColor + "1) Guardar una prenda en BD 📝");
+                System.out.println("2) Mostrar el inventario de prendas 📦");
+                System.out.println("3) SALIR ❌\n");
+
+                System.out.print("Digita una opción: ");
+                menuOption = keyEntry.nextInt();
+                keyEntry.nextLine();
 
 
                     if (menuOption == 1) {
@@ -70,40 +60,36 @@ public class Main {
 
                             System.out.print("Precio (entero): ");
                             int precio = Integer.parseInt(keyEntry.nextLine().trim());
-                            inventario.add(nombre+"|"+talla+"|"+precio+"|");
+                            nombres.add(nombre);
+                            tallas.add(talla);
+                            precios.add(precio);
 
-                            System.out.println(greenColor + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
+                            System.out.println(greenColor + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio+"\n");
                         } catch (NumberFormatException e) {
                             System.out.println(redColor + "Precio inválido. Debe ser un número entero.");
                         }
                     } else if (menuOption == 2) {
+                        System.out.println(yellowColor + "📋 Inventario:");
+                        //implementar algoritmo para recorrer y mostrar la lista en el formato pedido ✅
+//                        System.out.println(yellowColor + "📋 Inventario (demo):");
+//                        System.out.println("- Camiseta | M | $45000");
+//                        System.out.println("- Jean     | L | $120000");
 
-                        //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
-                        System.out.println(yellowColor + "📋 Inventario (demo):");
-                        System.out.println("- Camiseta | M | $45000");
-                        System.out.println("- Jean     | L | $120000");
-
-                        for (int i = 0; i < inventario.size(); i++) {
-                            String prenda = inventario.get(i);
+                        for (int i = 0; i < nombres.size(); i++) {
+                            System.out.println("- "+nombres.get(i)+" | "+tallas.get(i)+" | $"+precios.get(i));
                         }
 
 
                     } else if (menuOption == 3) {
                         //implementar algoritmo para cerrar el programa ✅
+                        System.out.println(greenColor + "👋 ¡Hasta pronto!");
                         break;
                     } else {
-                        System.out.println(redColor + "Opción no válida. Prueba con un número del 1 al 5.");
+                        System.out.println(redColor + "Opción no válida. Prueba con un número del 1 al 3.");
                     }
 
-
-//                    if (menuOption != 5) {
-//                        System.out.print("\nPresiona ENTER para continuar...");
-//                        keyEntry.nextLine();
-//                        System.out.println();
-//                    }
-
                 } catch (InputMismatchException ex) {
-                    System.out.println(redColor + "Entrada inválida. Debes digitar un número (1-5).");
+                    System.out.println(redColor + "Entrada inválida. Debes digitar un número (1-3).");
                     keyEntry.nextLine();
                     menuOption = -1;
                     System.out.print("\nPresiona ENTER para continuar...");
@@ -118,7 +104,8 @@ public class Main {
                 }
 
             } while (menuOption != 3);
-
+        }else {
+            System.out.println(redColor + "❌ Usuario o contraseña incorrectos");
         }
     }
 }

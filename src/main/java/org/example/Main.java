@@ -1,91 +1,133 @@
 package org.example;
 
+import java.util.*;
+import static java.lang.Integer.*;
+
 public class Main {
     public static void main(String[] args) {
-
-        Scanner keyEntry = new Scanner(System.in);
-        Integer menuOption=null;
-        String greenColor="\u001B[32m";
 
         //implementa logica para login con:
         //-nombre usuario
         //-correo
         //-contraseña
 
+        String usuarioBD= "Ad";
+        String usuario;
+        String correoBD = "ad@gmail.com";
+        String correo;
+        String contraseñaBD = "123A";
+        String contraseña;
+
+        Scanner keyEntry = new Scanner(System.in);
+
+        System.out.println("Ingrese el Usuario: ");
+        usuario = keyEntry.next();
+        System.out.println("Ingrese el Correo: ");
+        correo = keyEntry.next();
+        System.out.println("Ingrese la Contraseña: ");
+        contraseña = keyEntry.next();
+
+        Integer menuOption = 0;
+
+        String greenColor="\u001B[32m";
+        String redColor="\u001B[31m";
+        String yellowColor="\u001B[33m";
+
+        ArrayList<HashMap<String, Object>> prendas = new ArrayList<>();
 
 
-        System.out.println("\n******************");
-        System.out.println("***** APP *****");
-        System.out.println("******************");
+        if (usuario.equals(usuarioBD) && correo.equals(correoBD) && contraseña.equals(contraseñaBD)){
 
+            System.out.println("\n******************");
+            System.out.println("***** APP *****");
+            System.out.println("******************");
 
-        System.out.println("Digita una opcion: ");
-        menuOption=keyEntry.nextInt();
+            do {
+                try {
 
-        do {
-            try {
-
-                System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
-                System.out.println(GREEN + "1) Guardar una prenda en BD 📝");
-                System.out.println("2) Mostrar el inventario de prendas 📦");
-                System.out.println("3) SALIR ❌\n");
-
-                System.out.print("Digita una opción: ");
-                menuOption = keyEntry.nextInt();
-                keyEntry.nextLine();
-
-
-                if (menuOption == 1) {
-                    try {
-                        System.out.print("Nombre de la prenda: ");
-                        String nombre = nextLine();
-
-                        System.out.print("Talla (S/M/L/XL): ");
-                        String talla = sc.nextLine();
-
-                        System.out.print("Precio (entero): ");
-                        int precio = Integer.parseInt(sc.nextLine().trim());
-                        System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
-                    } catch (NumberFormatException e) {
-                        System.out.println(RED + "Precio inválido. Debe ser un número entero." );
+                    System.out.println("👕 Bienvenido a gestor de prendas...\n¿Qué quieres realizar?\n");
+                    System.out.println("1) Guardar una prenda en BD 📝");
+                    System.out.println("2) Mostrar el inventario de prendas 📦");
+                    System.out.println("3) SALIR ❌\n");
+                    {
                     }
-                } else if (menuOption == 2) {
 
-                    //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
-                    System.out.println(YELLOW + "📋 Inventario (demo):");
-                    System.out.println("- Camiseta | M | $45000");
-                    System.out.println("- Jean     | L | $120000");
+                    System.out.print("Digita una opción: ");
+                    menuOption = keyEntry.nextInt();
+                    keyEntry.nextLine();
 
 
-                } else if (menuOption == 3) {
-                    //implementar algoritmo para cerrar el programa
-                } else {
-                    System.out.println(RED + "Opción no válida. Prueba con un número del 1 al 5.");
-                }
+                    if (menuOption == 1) {
+                        HashMap<String, Object> prenda = new HashMap<>();
+                        try {
+                            System.out.print("Nombre de la prenda: ");
+                            String nombre = keyEntry.nextLine();
+
+                            System.out.print("\nTalla (S/M/L/XL): ");
+                            String talla = keyEntry.nextLine();
+
+                            System.out.print("\nPrecio (entero): ");
+                            Integer precio = keyEntry.nextInt();
+
+                            prenda.put("nombre", nombre);
+                            prenda.put("talla", talla);
+                            prenda.put("precio", precio);
+
+                            prendas.add(prenda);
+
+                            System.out.println(greenColor + "✅ Prenda guardada: " + nombre + "|" + talla + " | $" + precio);
+
+                        } catch (NumberFormatException e) {
+                            System.out.println(redColor + "Precio inválido. Debe ser un número entero.");
+                        }
+
+                    }else if (menuOption == 2) {
+
+                            //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
+                            System.out.println(yellowColor + "📋 Inventario:");
+                            if (prendas.isEmpty()) {
+
+                            }else {
+                                for (HashMap<String,Object>prenda : prendas) {
+
+                                    String nombre = (String) prenda.get("nombre");
+                                    String talla = (String) prenda.get("talla");
+                                    Integer precio = (Integer) prenda.get("precio");
+                                    System.out.println("* " +"Prenda: " + nombre + " | Talla: " + talla + " | Precio: $" + precio);
+
+                                }
+                            }
 
 
-                if (menuOption != null && menuOption != 5) {
+                    }else if (menuOption == 3) {
+                        //implementar algoritmo para cerrar el programa
+                        System.out.println("Hasta pronto");
+                        break;
+
+                    } else {
+                        System.out.println(redColor + "Opción no válida.");
+                    }
+
+                } catch (InputMismatchException ex) {
+                    System.out.println(redColor + "Entrada inválida.");
+                    keyEntry.nextLine();
+                    menuOption = -1;
+                    System.out.print("\nPresiona ENTER para continuar...");
+                    keyEntry.nextLine();
+                    System.out.println();
+                } catch (Exception ex) {
+                    // Cualquier otra excepción no prevista
+                    System.out.println(redColor + "Ups, algo salió mal: " + ex.getMessage());
                     System.out.print("\nPresiona ENTER para continuar...");
                     keyEntry.nextLine();
                     System.out.println();
                 }
 
-            } catch (InputMismatchException ex) {
-                System.out.println(RED + "Entrada inválida. Debes digitar un número (1-5).");
-                keyEntry.nextLine();
-                menuOption = -1;
-                System.out.print("\nPresiona ENTER para continuar...");
-                keyEntry.nextLine();
-                System.out.println();
-            } catch (Exception ex) {
-                // Cualquier otra excepción no prevista
-                System.out.println(RED + "Ups, algo salió mal: " + ex.getMessage());
-                System.out.print("\nPresiona ENTER para continuar...");
-                keyEntry.nextLine();
-                System.out.println();
+            }while (true) ;
+
+        }else{
+            System.out.println("Intente nuevamente ❌");
+
             }
-
-        } while (menuOption == null || menuOption != 5);
-
+        }
     }
-}

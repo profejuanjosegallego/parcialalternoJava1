@@ -16,21 +16,23 @@ public class Main {
         //-correo
         //-contraseña
 
-        String correoAlmacenado = "saragaleo";
+        String usuarioAlmacenado = "sgaleo";
+        String usuarioDigitado;
+        String correoAlmacenado = "saragaleo@gmail.com";
         String correoDigitado;
         String contraseñaAlamacenada = "admin123";
         String contraseñaDigitada;
 
         Scanner leer = new Scanner(System.in);
 
+        System.out.println("Digite su usuario");
+        usuarioDigitado = leer.nextLine();
+
         System.out.println("Digite su correo");
         correoDigitado = leer.nextLine();
 
         System.out.println("Digite la contraseña");
         contraseñaDigitada = leer.nextLine();
-
-        System.out.println("Digita una opcion: ");
-        menuOption=keyEntry.nextInt();
 
         do {
             try {

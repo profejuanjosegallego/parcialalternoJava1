@@ -20,6 +20,8 @@ public class Main {
         }
     }
 
+    
+
     public static void main(String[] args) {
 
         Scanner keyEntry = new Scanner(System.in);

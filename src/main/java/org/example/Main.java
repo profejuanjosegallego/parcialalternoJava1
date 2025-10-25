@@ -20,19 +20,17 @@ public class Main {
         String usuarioDigitado;
         String correoAlmacenado = "saragaleo@gmail.com";
         String correoDigitado;
-        String contraseñaAlamacenada = "admin123";
+        String contraseñaAlmacenada = "admin123";
         String contraseñaDigitada;
 
-        Scanner leer = new Scanner(System.in);
-
         System.out.println("Digite su usuario");
-        usuarioDigitado = leer.nextLine();
+        usuarioDigitado = keyEntry.nextLine();
 
         System.out.println("Digite su correo");
-        correoDigitado = leer.nextLine();
+        correoDigitado = keyEntry.nextLine();
 
         System.out.println("Digite la contraseña");
-        contraseñaDigitada = leer.nextLine();
+        contraseñaDigitada = keyEntry.nextLine();
 
         do {
             try {
@@ -76,7 +74,7 @@ public class Main {
                 }
 
 
-                if (menuOption != null && menuOption != 5) {
+                if (menuOption != null && menuOption != 3) {
                     System.out.print("\nPresiona ENTER para continuar...");
                     keyEntry.nextLine();
                     System.out.println();

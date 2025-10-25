@@ -1,11 +1,18 @@
 package org.example;
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
         Scanner keyEntry = new Scanner(System.in);
         Integer menuOption=null;
-        String greenColor="\u001B[32m";
+        String RED= "\u001B[31m";
+        String YELLOW = "\u001B[33m";
+        String GREEN="\u001B[32m";
+
+        String UsuarioGuardadoEnBD = "andres31";
+        String ContraseñaGuardadaEnBD = "admin123*";
+        String CorreoGuardadoEnBD = "andresmontoya@";
 
         //implementa logica para login con:
         //-nombre usuario
@@ -19,8 +26,41 @@ public class Main {
         System.out.println("******************");
 
 
-        System.out.println("Digita una opcion: ");
-        menuOption=keyEntry.nextInt();
+       // System.out.println("Digita una opcion: ");
+        //menuOption=keyEntry.nextInt();
+
+
+        int contador = 0;
+        boolean autenticado = false;
+        System.out.println(RED+ "\nBienvenido a gestor de prendas\n" );
+        while (contador < 3) {
+
+
+            System.out.print("👉 Digita tu nombre de usuario: ");
+            String usuarioIngresado = keyEntry.nextLine();
+
+            System.out.print("🔑 Digita tu contraseña: \n");
+            String contraseñaIngresada = keyEntry.nextLine();
+
+            System.out.print("🔑 Digita tu correo: \n");
+            String correoingresado = keyEntry.nextLine();
+
+
+            if (usuarioIngresado.equals(UsuarioGuardadoEnBD) &&
+                    contraseñaIngresada.equals(ContraseñaGuardadaEnBD)&&(correoingresado.equals(CorreoGuardadoEnBD))) {
+
+                System.out.println(GREEN+ "\n✅ Bienvenido, acceso concedido. 👌");
+                autenticado = true;
+                break; // Sale del ciclo
+            } else {
+
+                System.out.println(GREEN+"usuario no valido" );
+            }
+
+
+        }
+
+
 
         do {
             try {
@@ -38,13 +78,13 @@ public class Main {
                 if (menuOption == 1) {
                     try {
                         System.out.print("Nombre de la prenda: ");
-                        String nombre = nextLine();
+                        String nombre =keyEntry.nextLine();
 
                         System.out.print("Talla (S/M/L/XL): ");
-                        String talla = sc.nextLine();
+                        String talla = keyEntry.nextLine();
 
                         System.out.print("Precio (entero): ");
-                        int precio = Integer.parseInt(sc.nextLine().trim());
+                        int precio = Integer.parseInt(keyEntry.nextLine().trim());
                         System.out.println(GREEN + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
                         System.out.println(RED + "Precio inválido. Debe ser un número entero." );
@@ -58,6 +98,7 @@ public class Main {
 
 
                 } else if (menuOption == 3) {
+                    break;
                     //implementar algoritmo para cerrar el programa
                 } else {
                     System.out.println(RED + "Opción no válida. Prueba con un número del 1 al 5.");

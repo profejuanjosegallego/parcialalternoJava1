@@ -1,32 +1,88 @@
-# Parcial 1 — Java 🤖
+# 👕 Sistema de Inventario de Prendas – Proyecto Mejorado
 
-> **No olvides hacerle _FORK_ 😎**
-
----
-
-## ¡Energía Saiyajin para hoy! 🐉⚡
-> ¡Que hoy les suba el **ki** más que el **Kaio-ken** de Goku! 💥  
-> Que cada reto sea un **Saibaman** y ustedes, **Super Saiyajin**.  
-> Si se complica, respiren, junten energía y… **¡Genkidama de soluciones!** ✨  
-> **Shenlong** ya está avisado: deseo concedido = **¡éxito total!** 🐉
+Este proyecto incluye mejoras importantes en la estructura del programa, nuevas funciones y correcciones generales para lograr un funcionamiento más estable y completo.
 
 ---
 
-## Formulario de entrega 📝
-Completa tu entrega aquí: **[forms.gle/J8pbaRp4jBZANma5A](https://forms.gle/J8pbaRp4jBZANma5A)**
+## 🔐 Login Implementado
+
+Se añadió un sistema básico de **inicio de sesión** para controlar el acceso antes de ingresar al menú principal.
+
+Características:
+- Solicitud de usuario y contraseña  
+- Validación de credenciales  
+- Mensajes claros en caso de error  
+- Reintentos permitidos  
+- Acceso denegado si la autenticación falla
 
 ---
 
-### Recordatorio rápido
-- ✅ Haz **FORK** del repositorio  
-- ✅ Trabaja en tu propia branch (ej. `feature/tu-nombre`)  
-- ✅ Haz **commit** con mensajes claros  
-- ✅ Crea tu **Pull Request** cuando termines
+## 🛠️ Corrección de Errores de Sintaxis
 
-> _“El límite es de +9000, pero tu código puede más.”_ 😎
+Durante la actualización del proyecto, se corrigieron varios errores que impedían su ejecución correcta:
 
-![Vamos](https://st1.uvnimg.com/70/6c/7c58c3f14780d277bdd18977564f/vegeta-dice-insecto.jpg)
+- Llaves mal organizadas  
+- Sentencias sin cerrar  
+- Tipos de datos incorrectos  
+- Variables sin inicializar  
+- Problemas en la lectura de datos con Scanner  
 
+✔ El programa ahora compila y corre sin fallos inesperados.
 
+---
 
+## 🔄 Restauración de Clases No Utilizadas
 
+Había clases creadas en el proyecto pero sin funcionalidad o conexión con el flujo principal.  
+Se realizó lo siguiente:
+
+- Se revisaron las clases existentes  
+- Se restableció su funcionalidad  
+- Se conectaron de nuevo al programa principal  
+- Se eliminaron elementos duplicados o innecesarios  
+
+🏗️ Ahora todas las clases cumplen un propósito dentro del sistema.
+
+---
+
+## 📋 Lista Funcional de Prendas
+
+Se creó y mejoró una lista dinámica (`ArrayList<HashMap<String, Object>>`) que permite:
+
+- Agregar prendas ingresadas por el usuario  
+- Guardar nombre, talla y precio  
+- Validar entradas numéricas  
+- Evitar errores cuando el usuario ingresa letras en vez de números  
+- Mostrar el inventario en formato organizado  
+
+### 🔎 Búsqueda por Preferencias del Usuario
+
+El sistema ahora permite filtrar prendas dependiendo de lo que el usuario quiera ver:
+
+- Por nombre  
+- Por talla  
+- Por rango de precio  
+- O visualizar todas  
+
+🧵 Esto hace el inventario mucho más útil y flexible.
+
+---
+
+## 🚀 Estado Actual del Proyecto
+
+El sistema es completamente funcional y permite:
+- Iniciar sesión  
+- Registrar prendas  
+- Mostrar el inventario  
+- Listar prendas según preferencia del usuario  
+- Manejar errores de entrada  
+- Salir del programa correctamente  
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto creado y mejorado por: **Jeisson Yela**  
+💼 Tecnología usada: Java + IntelliJ IDEA  
+
+---

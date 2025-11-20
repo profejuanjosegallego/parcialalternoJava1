@@ -1,0 +1,83 @@
+🧵 Gestor de Prendas en Java
+👕 Proyecto: Gestor de Inventario de Prendas
+
+Este proyecto es una aplicación de consola desarrollada en Java, cuyo propósito es gestionar un pequeño inventario de prendas utilizando estructuras de datos dinámicas como ArrayList y HashMap.
+Incluye un sistema de login, manejo de excepciones, validaciones y un menú interactivo.
+
+✨ ¿Qué se hizo en este proyecto?
+
+✔️ 1. Corrección de errores de sintaxis
+El código inicial presentaba múltiples errores, tales como:
+
+Llaves {} faltantes
+Variables mal nombradas
+try sin catch válido
+Problemas con la lectura de datos (nextInt + nextLine)
+Errores de impresión
+Inconsistencias en tipos de datos
+Todos fueron corregidos para garantizar un funcionamiento adecuado.
+
+✔️ 2. Implementación de estructuras dinámicas (ArrayList y HashMap)
+
+Se añadió un ArrayList de HashMaps para almacenar todas las prendas ingresadas:
+ArrayList<HashMap<String, Object>> inventario = new ArrayList<>();
+Cada prenda se guarda con:
+nombre
+talla
+precio
+
+Esto permite almacenar múltiples entradas sin necesidad de crear una clase adicional.
+
+✔️ 3. Mejora y corrección de nombres de variables 🧹
+Variables renombradas para mantener claridad y buenas prácticas:
+usuario → usuarioIngresado
+contraseña → contraseñaIngresada
+menuOption ahora puede manejar null
+Se corrigieron acentos y errores ortográficos
+
+✔️ 4. Sistema de Login 🔐
+Antes de acceder al menú, el usuario debe autenticarse ingresando:
+Usuario
+Correo
+Contraseña
+Si alguno falla, el sistema finaliza.
+
+✔️ 5. Menú interactivo con validaciones ✔✔
+El sistema ofrece tres opciones:
+
+1) Guardar una prenda
+Solicita nombre, talla y precio
+Valida el precio
+Almacena la prenda en el inventario
+Confirma la operación con mensaje en verde
+
+2) Mostrar inventario
+Recorre el ArrayList con un for-each
+Ajusta espacios para mostrar el nombre alineado
+Muestra cada prenda formateada
+
+3) Salir
+Finaliza la ejecución del programa.
+
+🛠 Manejo de excepciones
+El programa captura:
+InputMismatchException → cuando ingresan letras donde van números
+NumberFormatException → cuando el precio no es válido
+Exception → para errores imprevistos
+Esto evita bloqueos y mejora la experiencia del usuario.
+
+📦 Tecnologías utilizadas
+Java 17+
+Scanner
+ArrayList
+HashMap
+try/catch
+ANSI Colors (para colorear texto en consola)
+
+🎯 Estado actual del proyecto
+✔ Código funcional
+✔ Validado
+✔ Manejo de excepciones implementado
+✔ Inventario dinámico
+✔ Login activo
+✔ Interfaz por consola formateada

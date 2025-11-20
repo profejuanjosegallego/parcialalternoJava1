@@ -1,32 +1,53 @@
-# Parcial 1 — Java 🤖
+# Cambios realizados al código
 
-> **No olvides hacerle _FORK_ 😎**
+```diff
++ import java.util.InputMismatchException;
++ import java.util.Scanner;
 
----
+- Scanner keyEntry
++ Scanner entradaTeclado
 
-## ¡Energía Saiyajin para hoy! 🐉⚡
-> ¡Que hoy les suba el **ki** más que el **Kaio-ken** de Goku! 💥  
-> Que cada reto sea un **Saibaman** y ustedes, **Super Saiyajin**.  
-> Si se complica, respiren, junten energía y… **¡Genkidama de soluciones!** ✨  
-> **Shenlong** ya está avisado: deseo concedido = **¡éxito total!** 🐉
+- Integer menuOption
++ Integer opcionMenu
 
----
++ String VERDE = "\u001B[32m";
++ String ROJO = "\u001B[31m";
++ String AMARILLO = "\u001B[33m";
++ String RESET = "\u001B[0m";
 
-## Formulario de entrega 📝
-Completa tu entrega aquí: **[forms.gle/J8pbaRp4jBZANma5A](https://forms.gle/J8pbaRp4jBZANma5A)**
++ String usuarioCorrecto = "Lyon-777";
++ String correoCorrecto = "elevenpt3@gmail.com";
++ String contrasenaCorrecta = "1234";
++ String usuarioIngresado, contrasenaIngresada, correoIngresado;
 
----
++ System.out.println("\n===== LOGIN =====");
++ System.out.print("Ingresa tu usuario: ");
++ usuarioIngresado = entradaTeclado.nextLine();
++ System.out.println("Ingresa tu correo: ");
++ correoIngresado = entradaTeclado.nextLine();
++ System.out.print("Ingresa tu contraseña: ");
++ contrasenaIngresada = entradaTeclado.nextLine();
 
-### Recordatorio rápido
-- ✅ Haz **FORK** del repositorio  
-- ✅ Trabaja en tu propia branch (ej. `feature/tu-nombre`)  
-- ✅ Haz **commit** con mensajes claros  
-- ✅ Crea tu **Pull Request** cuando termines
++ if (!usuarioIngresado.equals(usuarioCorrecto) ||
++     !contrasenaIngresada.equals(contrasenaCorrecta) ||
++     !correoIngresado.equals(correoCorrecto)) {
++     System.out.println(ROJO + "❌ Usuario o contraseña incorrectos." + RESET);
++     return;
++ }
++ System.out.println(VERDE + "✔ Acceso permitido. ¡Bienvenido!" + RESET);
 
-> _“El límite es de +9000, pero tu código puede más.”_ 😎
+- System.out.println(GREEN + "1) Guardar una prenda en BD 📝");
++ System.out.println(VERDE + "1) Guardar una prenda 📝");
++ System.out.println("2) Mostrar inventario 📦");
++ System.out.println("3) Salir ❌" + RESET);
 
-![Vamos](https://st1.uvnimg.com/70/6c/7c58c3f14780d277bdd18977564f/vegeta-dice-insecto.jpg)
++ entradaTeclado.nextLine(); // Limpia el buffer
 
++ System.out.println(VERDE + "✔ Prenda guardada: " + nombrePrenda + " - " + talla + " - $" + precio + RESET);
++ System.out.println(ROJO + "❌ Error: El precio debe ser un número entero." + RESET);
++ System.out.println(ROJO + "⚠ Opción no válida. Ingresa un número del 1 al 3." + RESET);
++ System.out.println(VERDE + "👋 Saliendo del programa..." + RESET);
++ System.out.print("\nPresiona ENTER para continuar...");
 
-
-
+- while (menuOption == null || menuOption != 5);
++ while (opcionMenu == null || opcionMenu != 3);

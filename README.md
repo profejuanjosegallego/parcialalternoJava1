@@ -24,9 +24,3 @@ Completa tu entrega aquí: **[forms.gle/J8pbaRp4jBZANma5A](https://forms.gle/J8p
 - ✅ Crea tu **Pull Request** cuando termines
 
 > _“El límite es de +9000, pero tu código puede más.”_ 😎
-
-![Vamos](https://st1.uvnimg.com/70/6c/7c58c3f14780d277bdd18977564f/vegeta-dice-insecto.jpg)
-
-
-
-

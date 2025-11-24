@@ -7,25 +7,54 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner keyEntry = new Scanner(System.in);
-        Integer menuOption=null;
-        String greenColor="\u001B[32m";
-        String redColor="\u001B[31m";
-        String yellowColor="\u001B[33m";
+        Integer menuOption = null;
+        Integer intentos = 0;
 
         //implementa logica para login con:
         //-nombre usuario
         //-correo
         //-contraseña
-
+        String nombreUsuario;
+        String correoUsuario;
+        String contraseñaUsuario;
+        String nombreBaseDatos = "examenjava";
+        String correoBaseDatos = "examen@gmail.com";
+        String contraseñaBaseDatos = "1234";
+        String greenColor = "\u001B[32m";
+        String redColor = "\u001B[31m";
+        String yellowColor = "\u001B[33m";
 
 
         System.out.println("\n******************");
         System.out.println("***** APP *****");
         System.out.println("******************");
 
+        while (intentos < 3) {
+            System.out.println("ingrese nombre de usuario");
+            nombreUsuario = keyEntry.nextLine();
+
+            System.out.println("ingrese correo electronico");
+            correoUsuario = keyEntry.nextLine();
+
+            System.out.println("ingrese contraseña");
+            contraseñaUsuario = keyEntry.nextLine();
+
+            if (nombreUsuario.equals(nombreBaseDatos) && correoUsuario.equals(correoBaseDatos) && contraseñaUsuario.equals(contraseñaBaseDatos)) {
+                System.out.println("bienvenido 👍👍👍");
+                break;
+            } else {
+                intentos++;
+                System.out.println("ERROR te equivocaste " + intentos + " de 3");
+            }
+            if (intentos == 3) {
+                System.out.println("se te acabaron los intentos NO puedes ingresar");
+                break;
+            }
+        }
+/*
 
         System.out.println("Digita una opcion: ");
-        menuOption=keyEntry.nextInt();
+        menuOption = keyEntry.nextInt();
 
         do {
             try {
@@ -52,7 +81,7 @@ public class Main {
                         int precio = Integer.parseInt(keyEntry.nextLine().trim());
                         System.out.println(greenColor + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
-                        System.out.println(redColor + "Precio inválido. Debe ser un número entero." );
+                        System.out.println(redColor + "Precio inválido. Debe ser un número entero.");
                     }
                 } else if (menuOption == 2) {
 
@@ -91,6 +120,6 @@ public class Main {
             }
 
         } while (menuOption == null || menuOption != 5);
-
+*/
     }
 }

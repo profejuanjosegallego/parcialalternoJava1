@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner keyEntry = new Scanner(System.in);
+        ArrayList<HashMap<String, Object>> prendas = new ArrayList<>();
         Integer menuOption = null;
         Integer intentos = 0;
 
@@ -26,7 +29,7 @@ public class Main {
 
 
         System.out.println("\n******************");
-        System.out.println("***** APP *****");
+        System.out.println("*****🍀🍀🍀APP🍀🍀🍀*****");
         System.out.println("******************");
 
         while (intentos < 3) {
@@ -47,11 +50,11 @@ public class Main {
                 System.out.println("ERROR te equivocaste " + intentos + " de 3");
             }
             if (intentos == 3) {
-                System.out.println("se te acabaron los intentos NO puedes ingresar");
+                System.out.println("se te acabaron los intentos NO puedes ingresar 👎👎👎");
                 break;
             }
         }
-/*
+
 
         System.out.println("Digita una opcion: ");
         menuOption = keyEntry.nextInt();
@@ -71,6 +74,9 @@ public class Main {
 
                 if (menuOption == 1) {
                     try {
+
+                        HashMap<String, Object> prenda = new HashMap<>();
+
                         System.out.print("Nombre de la prenda: ");
                         String nombre = keyEntry.nextLine();
 
@@ -79,6 +85,11 @@ public class Main {
 
                         System.out.print("Precio (entero): ");
                         int precio = Integer.parseInt(keyEntry.nextLine().trim());
+
+                        prenda.put("nombre", nombre);
+                        prenda.put("talla", talla);
+                        prenda.put("precio", precio);
+                        prendas.add(prenda);
                         System.out.println(greenColor + "✅ Prenda guardada: " + nombre + " - " + talla + " - $" + precio);
                     } catch (NumberFormatException e) {
                         System.out.println(redColor + "Precio inválido. Debe ser un número entero.");
@@ -87,25 +98,20 @@ public class Main {
 
                     //implementar algoritmo para recorrer y mostrar la lista en el formato pedido
                     System.out.println(yellowColor + "📋 Inventario (demo):");
-                    System.out.println("- Camiseta | M | $45000");
-                    System.out.println("- Jean     | L | $120000");
-
+                    for(HashMap<String, Object> item: prendas){
+                        System.out.println("-" + item.get("nombre") + " | " + item.get("talla") + " | $" + item.get("precio"));
+                    }
 
                 } else if (menuOption == 3) {
+                    break;
                     //implementar algoritmo para cerrar el programa
                 } else {
-                    System.out.println(redColor + "Opción no válida. Prueba con un número del 1 al 5.");
+                    System.out.println(redColor + "Opción no válida. Prueba con un número del 1 al 3.");
                 }
 
-
-                if (menuOption != null && menuOption != 5) {
-                    System.out.print("\nPresiona ENTER para continuar...");
-                    keyEntry.nextLine();
-                    System.out.println();
-                }
 
             } catch (InputMismatchException ex) {
-                System.out.println(redColor + "Entrada inválida. Debes digitar un número (1-5).");
+                System.out.println(redColor + "Entrada inválida. Debes digitar un número (1-3).");
                 keyEntry.nextLine();
                 menuOption = -1;
                 System.out.print("\nPresiona ENTER para continuar...");
@@ -119,7 +125,7 @@ public class Main {
                 System.out.println();
             }
 
-        } while (menuOption == null || menuOption != 5);
-*/
+        } while (menuOption == null || menuOption != 3);
+
     }
 }

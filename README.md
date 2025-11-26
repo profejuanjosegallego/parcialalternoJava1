@@ -1,31 +1,66 @@
-# Parcial 1 — Java 🤖
-
-> **No olvides hacerle _FORK_ 😎**
-
----
-
-## ¡Energía Saiyajin para hoy! 🐉⚡
-> ¡Que hoy les suba el **ki** más que el **Kaio-ken** de Goku! 💥  
-> Que cada reto sea un **Saibaman** y ustedes, **Super Saiyajin**.  
-> Si se complica, respiren, junten energía y… **¡Genkidama de soluciones!** ✨  
-> **Shenlong** ya está avisado: deseo concedido = **¡éxito total!** 🐉
+# 🧵 Gestor de Prendas en Java
+Aplicación de consola para registro, autenticación e inventario de prendas.
 
 ---
 
-## Formulario de entrega 📝
-Completa tu entrega aquí: **[forms.gle/J8pbaRp4jBZANma5A](https://forms.gle/J8pbaRp4jBZANma5A)**
+## 📌 Descripción General
+Este proyecto consiste en un sistema desarrollado en **Java** que permite:
+
+- Registrar un usuario (nombre, correo y contraseña).
+- Validar credenciales mediante un proceso básico de inicio de sesión.
+- Gestionar prendas (nombre, talla y precio) en un inventario.
+- Mostrar listas de prendas con formato amigable.
+
+El programa está diseñado para ejecutarse en consola y utiliza estructuras como `ArrayList` y `HashMap`.
 
 ---
 
-### Recordatorio rápido
-- ✅ Haz **FORK** del repositorio  
-- ✅ Trabaja en tu propia branch (ej. `feature/tu-nombre`)  
-- ✅ Haz **commit** con mensajes claros  
-- ✅ Crea tu **Pull Request** cuando termines
+## 🔧 Mejoras Realizadas (Refactor)
 
-> _“El límite es de +9000, pero tu código puede más.”_ 😎
+### ✅ 1. Corrección de errores de sintaxis
+Se corrigieron fallos como:
+- Errores en declaraciones de variables.
+- Manejo incorrecto del `Scanner`.
+- Mal uso de `continue`.
+- Condiciones incompletas en el login.
 
-![Vamos](https://st1.uvnimg.com/70/6c/7c58c3f14780d277bdd18977564f/vegeta-dice-insecto.jpg)
+### 🧼 2. Renombrado profesional de variables
+Se optimizó la legibilidad cambiando nombres ambiguos por otros más expresivos:
+
+| Antes | Después |
+|-------|---------|
+| `teclado` | `tecladoDigitadoUsuario` |
+| `confirmacionPassword` | `confirmacionContraseniaDeUsuario` |
+| `arrayPrendas` | `prendasRopas` |
+
+### 📚 3. Implementación de nuevos ArrayList
+Se agregaron hasta **5 listas dinámicas** para almacenar datos y mejorar la flexibilidad del sistema.
+
+### 🔐 4. Validaciones robustas en el login
+- Uso de `equalsIgnoreCase()`.
+- Control de intentos.
+- Manejo de excepciones (`InputMismatchException`, `NumberFormatException`).
+- Mensajes de error con colores ANSI.
+
+### 🎨 5. Limpieza general del código
+Se implementaron colores en consola para mejorar la experiencia visual:
+- ❌ Errores (rojo)
+- 📋 Inventario (amarillo)
+- ✅ Confirmaciones (verde)
+
+---
+
+## 📦 Inventario
+Se utiliza la estructura:
+
+```java
+ArrayList<HashMap<String, Object>> prendasRopas = new ArrayList<>();
+
+````
+---
+> _“Si un perdedor hace muchos esfuerzos, quizá pueda sobrepasar el poder de un guerrero distinguido" ."Son Goku"_ 🐲
+
+![Vamos](https://es.gizmodo.com/app/uploads/2021/12/29a26dde958612e64c40ffd7682440cd.jpg)
 
 
 
